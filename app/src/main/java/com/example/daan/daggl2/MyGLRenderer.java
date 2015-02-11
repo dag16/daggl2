@@ -3,6 +3,7 @@ package com.example.daan.daggl2;
 import android.opengl.GLES30;
 import android.opengl.GLSurfaceView;
 import android.opengl.Matrix;
+import android.util.Log;
 
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
@@ -27,7 +28,7 @@ public class MyGLRenderer implements GLSurfaceView.Renderer{
     public void onSurfaceCreated(GL10 gl, EGLConfig config) {
         GLES30.glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
         GLES30.glCullFace(GLES30.GL_FRONT_AND_BACK);
-
+        Log.i("VERSION", GLES30.glGetString(GLES30.GL_VERSION));
         t = new Triangle();
     }
 
@@ -71,6 +72,5 @@ public class MyGLRenderer implements GLSurfaceView.Renderer{
     public void setColors(float dx, float dy) {
         colors[0] = dx / 100.0f;
         colors[1] = dy / 100.0f;
-
     }
 }
